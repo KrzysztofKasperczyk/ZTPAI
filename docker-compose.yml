@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: ztpai-postgres
+    environment:
+      POSTGRES_DB: ztpai_db
+      POSTGRES_USER: ztpai_user
+      POSTGRES_PASSWORD: ztpai_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
